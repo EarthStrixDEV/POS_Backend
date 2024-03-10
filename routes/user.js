@@ -5,6 +5,8 @@ const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 
+require('dotenv').config()
+
 const callUUID = async () => {
     try {
         const response = await axios.get('http://127.0.0.1:8000/');
@@ -34,9 +36,9 @@ router.post('/userRegistration' ,(request ,response) => {
     const filename = folderName + '/' + `${uuid.cardID}.json`; // ระบุพาธของไฟล์ที่รวมถึงชื่อโฟลเดอร์
 
     ftp.connect({
-        host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-        user: 'member',
-        password: 'Member123456@'
+        host: process.env.HOST, // เปลี่ยนเป็น host ของ FTP server ของคุณ
+        user: process.env.USER,
+        password: process.env.PASSWORD
     });
 
     ftp.on('ready', () => {
@@ -99,9 +101,9 @@ router.get('/getUser/:student_ID', (request ,response) => {
     
     const ftp = new ftpClient();
     ftp.connect({
-        host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-        user: 'member',
-        password: '0816538747'
+        host: process.env.HOST, // เปลี่ยนเป็น host ของ FTP server ของคุณ
+        user: process.env.USER,
+        password: process.env.PASSWORD
     });
 
     ftp.on('ready', () => {

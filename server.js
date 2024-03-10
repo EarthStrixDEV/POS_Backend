@@ -7,6 +7,8 @@ const fs = require('fs');
 const path = require('path');
 const app = express();
 
+require('dotenv').config()
+
 const transaction = require('./routes/transaction');
 const user = require('./routes/user');
 
@@ -32,9 +34,9 @@ const callUUID = async () => {
 app.get('/readFileFromFTP/:filename', (req, res) => {
     const ftp = new ftpClient();
     ftp.connect({
-        host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-        user: 'member',
-        password: 'Member123456@'
+        host: process.env.HOST, // เปลี่ยนเป็น host ของ FTP server ของคุณ
+        user: process.env.USER,
+        password: process.env.PASSWORD
     });
 
     ftp.on('ready', () => {
@@ -70,9 +72,9 @@ app.post('/writeJsonFileToFTP', (req, res) => {
     const jsonData = req.body.data; // รับข้อมูล JSON จาก body ของ request
 
     ftp.connect({
-        host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-        user: 'member',
-        password: 'Member123456@'
+        host: process.env.HOST, // เปลี่ยนเป็น host ของ FTP server ของคุณ
+        user: process.env.USER,
+        password: process.env.PASSWORD
     });
 
     ftp.on('ready', () => {
@@ -125,9 +127,9 @@ app.post('/writeJsonFileToFolderNisitInFTP', async(req, res) => {
         const filename = folderName + '/' + `${uuid.cardID}.json`; // ระบุพาธของไฟล์ที่รวมถึงชื่อโฟลเดอร์
 
         ftp.connect({
-            host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-            user: 'member',
-            password: 'Member123456@'
+            host: process.env.HOST, // เปลี่ยนเป็น host ของ FTP server ของคุณ
+            user: process.env.USER,
+            password: process.env.PASSWORD
         });
 
         ftp.on('ready', () => {
@@ -196,9 +198,9 @@ app.post('/updateDataNisit', async(req, res) => {
     try{
         let uuid = await callUUID();
         ftp.connect({
-            host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-            user: 'member',
-            password: 'Member123456@'
+            host: process.env.HOST, // เปลี่ยนเป็น host ของ FTP server ของคุณ
+            user: process.env.USER,
+            password: process.env.PASSWORD
         });
     
         ftp.on('ready', () => {
@@ -270,9 +272,9 @@ app.get('/retrieveDataNisit', (req, res) => {
     const data = [];
 
     ftp.connect({
-        host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-        user: 'member',
-        password: 'Member123456@'
+        host: process.env.HOST, // เปลี่ยนเป็น host ของ FTP server ของคุณ
+        user: process.env.USER,
+        password: process.env.PASSWORD
     });
 
     ftp.on('ready', () => {
@@ -330,9 +332,9 @@ app.post('/retrieveDataNisitWithUUID', async(req, res) => {
         let uuid = await callUUID();
 
         ftp.connect({
-            host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-            user: 'member',
-            password: 'Member123456@'
+            host: process.env.HOST, // เปลี่ยนเป็น host ของ FTP server ของคุณ
+            user: process.env.USER,
+            password: process.env.PASSWORD
         });
     
         ftp.on('ready', () => {

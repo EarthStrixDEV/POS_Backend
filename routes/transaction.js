@@ -5,6 +5,8 @@ const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 
+require('dotenv').config()
+
 const callUUID = async () => {
     try {
         const response = await axios.get('http://127.0.0.1:8000/');
@@ -23,9 +25,9 @@ app.post('/topUpCashCard', async(req, res) => {
         let uuid = await callUUID();
 
         ftp.connect({
-            host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-            user: 'member',
-            password: 'Member123456@'
+            host: process.env.HOST, // เปลี่ยนเป็น host ของ FTP server ของคุณ
+            user: process.env.USER,
+            password: process.env.PASSWORD
         });
     
         ftp.on('ready', () => {
@@ -172,9 +174,9 @@ app.post('/createTransactionShop', async(req, res) => {
         const filename = folderName + '/' + `${shopID}.json`; // ระบุพาธของไฟล์ที่รวมถึงชื่อโฟลเดอร์
 
         ftp.connect({
-            host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-            user: 'member',
-            password: 'Member123456@'
+            host: process.env.HOST, // เปลี่ยนเป็น host ของ FTP server ของคุณ
+            user: process.env.USER,
+            password: process.env.PASSWORD
         });
 
         ftp.on('ready', () => {
@@ -328,9 +330,9 @@ app.post('/createTransactionPayment', async(req, res) => {
         const filename = folderName + '/' + `${uuid.cardID}.json`; // ระบุพาธของไฟล์ที่รวมถึงชื่อโฟลเดอร์
 
         ftp.connect({
-            host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-            user: 'member',
-            password: 'Member123456@'
+            host: process.env.HOST, // เปลี่ยนเป็น host ของ FTP server ของคุณ
+            user: process.env.USER,
+            password: process.env.PASSWORD
         });
 
         ftp.on('ready', () => {
@@ -467,9 +469,9 @@ app.post('/createTransactionTopUp', async(req, res) => {
         const filename = folderName + '/' + `${uuid.cardID}.json`; // ระบุพาธของไฟล์ที่รวมถึงชื่อโฟลเดอร์
 
         ftp.connect({
-            host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-            user: 'member',
-            password: 'Member123456@'
+            host: process.env.HOST, // เปลี่ยนเป็น host ของ FTP server ของคุณ
+            user: process.env.USER,
+            password: process.env.PASSWORD
         });
 
         ftp.on('ready', () => {
