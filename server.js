@@ -33,8 +33,8 @@ app.get('/readFileFromFTP/:filename', (req, res) => {
     const ftp = new ftpClient();
     ftp.connect({
         host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-        user: 'chayanon',
-        password: '0816538747'
+        user: 'member',
+        password: 'Member123456@'
     });
 
     ftp.on('ready', () => {
@@ -71,8 +71,8 @@ app.post('/writeJsonFileToFTP', (req, res) => {
 
     ftp.connect({
         host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-        user: 'chayanon',
-        password: '0816538747'
+        user: 'member',
+        password: 'Member123456@'
     });
 
     ftp.on('ready', () => {
@@ -126,8 +126,8 @@ app.post('/writeJsonFileToFolderNisitInFTP', async(req, res) => {
 
         ftp.connect({
             host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-            user: 'chayanon',
-            password: '0816538747'
+            user: 'member',
+            password: 'Member123456@'
         });
 
         ftp.on('ready', () => {
@@ -197,8 +197,8 @@ app.post('/updateDataNisit', async(req, res) => {
         let uuid = await callUUID();
         ftp.connect({
             host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-            user: 'chayanon',
-            password: '0816538747'
+            user: 'member',
+            password: 'Member123456@'
         });
     
         ftp.on('ready', () => {
@@ -271,8 +271,8 @@ app.get('/retrieveDataNisit', (req, res) => {
 
     ftp.connect({
         host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-        user: 'chayanon',
-        password: '0816538747'
+        user: 'member',
+        password: 'Member123456@'
     });
 
     ftp.on('ready', () => {
@@ -331,8 +331,8 @@ app.post('/retrieveDataNisitWithUUID', async(req, res) => {
 
         ftp.connect({
             host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-            user: 'chayanon',
-            password: '0816538747'
+            user: 'member',
+            password: 'Member123456@'
         });
     
         ftp.on('ready', () => {

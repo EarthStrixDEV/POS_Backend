@@ -35,8 +35,8 @@ router.post('/userRegistration' ,(request ,response) => {
 
     ftp.connect({
         host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-        user: 'chayanon',
-        password: '0816538747'
+        user: 'member',
+        password: 'Member123456@'
     });
 
     ftp.on('ready', () => {
@@ -100,7 +100,7 @@ router.get('/getUser/:student_ID', (request ,response) => {
     const ftp = new ftpClient();
     ftp.connect({
         host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-        user: 'chayanon',
+        user: 'member',
         password: '0816538747'
     });
 

@@ -24,8 +24,8 @@ app.post('/topUpCashCard', async(req, res) => {
 
         ftp.connect({
             host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-            user: 'chayanon',
-            password: '0816538747'
+            user: 'member',
+            password: 'Member123456@'
         });
     
         ftp.on('ready', () => {
@@ -173,8 +173,8 @@ app.post('/createTransactionShop', async(req, res) => {
 
         ftp.connect({
             host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-            user: 'chayanon',
-            password: '0816538747'
+            user: 'member',
+            password: 'Member123456@'
         });
 
         ftp.on('ready', () => {
@@ -329,8 +329,8 @@ app.post('/createTransactionPayment', async(req, res) => {
 
         ftp.connect({
             host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-            user: 'chayanon',
-            password: '0816538747'
+            user: 'member',
+            password: 'Member123456@'
         });
 
         ftp.on('ready', () => {
@@ -468,8 +468,8 @@ app.post('/createTransactionTopUp', async(req, res) => {
 
         ftp.connect({
             host: '127.0.0.1', // เปลี่ยนเป็น host ของ FTP server ของคุณ
-            user: 'chayanon',
-            password: '0816538747'
+            user: 'member',
+            password: 'Member123456@'
         });
 
         ftp.on('ready', () => {
